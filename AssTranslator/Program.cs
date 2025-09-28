@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,20 +12,25 @@ class Program
 {
     // CONFIG
     private const string Model = "gemini-2.0-flash";
-    private const int BatchSize = 25; // Giảm batch size để tránh lỗi JSON
+    private const int BatchSize = 89; // Giảm batch size để tránh lỗi JSON
     private static readonly TimeSpan HttpTimeout = TimeSpan.FromMinutes(2);
 
     // Default prompt — bạn có thể chỉnh bằng file custom_prompt.txt
-    private const string DefaultPrompt = """
-Bạn là dịch giả phụ đề chuyên nghiệp.
-- Dịch EN -> VI, tự nhiên, ngắn gọn.
+    private const string DefaultPrompt = @"
+    Bạn là dịch giả phụ đề chuyên nghiệp.
+- Sub bên trong là từ bộ phim hoạt hình Trung Quốc tên là LING CAGE còn gọi là LING LONG
+- Dịch EN -> VI.
 - Tên riêng/vật phẩm/địa danh: kèm Hán Việt trong ngoặc nếu phù hợp.
-- Giữ nguyên [TAGx] và {\...} nguyên dạng.
-- Thay \N bằng [BR] khi trả; chương trình sẽ đổi lại.
-- Đầu vào: JSON mảng [{ "id": "...", "text": "..." }]
-- Trả về: JSON mảng [{ "id": "...", "vi": "..." }]
-CHỈ TRẢ JSON, KHÔNG GIẢI THÍCH.
-""";
+-phải để ý thật nhưng cách xưng hô như i you để tránh đang thoại của người con trai lớn tuổi hơn nhưng là xưng mình là em
+- Tuyệt đối giữ nguyên mọi PLACEHOLDER và TAG trong văn bản: ví dụ {\i1}, {\pos(320,240)} — phải giữ y nguyên.
+- Giữ nguyên [TAGx] và
+{\...}
+nguyên dạng.
+-Thay \N bằng[BR] khi trả; chương trình sẽ đổi lại.
+- Không thêm dòng mới hay xóa dòng; chỉ trả mảng JSON.
+- Đầu vào: JSON mảng[{ ""id"": ""..."", ""text"": ""..."" }]
+-Trả về: JSON mảng[{ ""id"": ""..."", ""vi"": ""..."" }]
+CHỈ TRẢ JSON, KHÔNG GIẢI THÍCH.";
     //Bạn là dịch giả phụ đề phim. Nhiệm vụ:
     //- Dịch từ tiếng Anh sang TIẾNG VIỆT TỰ NHIÊN.
     //- Với tên nhân vật, địa danh, tổ chức, vật phẩm, vũ khí, bí danh... hãy thêm Hán Việt trong ngoặc: ví dụ "Ling Cage (Linh Quật)" nếu phù hợp. Giữ nhất quán xuyên suốt.
@@ -35,6 +40,26 @@ CHỈ TRẢ JSON, KHÔNG GIẢI THÍCH.
     //- Đầu vào: JSON mảng các đối tượng: [{ "id": string, "text": string }]
     //- Đầu ra: JSON mảng các đối tượng: [{ "id": string, "vi": string }]
     //Chỉ trả đúng JSON, KHÔNG trả lời thêm.
+
+    //- đây là sub EN bộ phim LING CAGE của trung quốc giờ hãy dịch sang tiếng việt
+    //- hán việt với tên gọi hoặc chỉ vật phẩm nào đó xuyên suốt quá trình dịch phải nhớ ngữ cảnh đang dịch 
+    //-chỉ dịch thôi không đụng tới nữa thứ khác
+    //-thay toàn bộ sub bằng sub đã dịch qua việt + hán việt
+
+//    Bạn là dịch giả phụ đề chuyên nghiệp.
+//- Sub bên trong là từ bộ phim hoạt hình Trung Quốc tên là LING CAGE còn gọi là LING LONG
+//- Dịch EN -> VI.
+//- Tên riêng/vật phẩm/địa danh: kèm Hán Việt trong ngoặc nếu phù hợp.
+//-phải để ý thật nhưng cách xưng hô như i you để tránh đang thoại của người con trai lớn tuổi hơn nhưng là xưng mình là em
+//- Tuyệt đối giữ nguyên mọi PLACEHOLDER và TAG trong văn bản: ví dụ {\i1}, {\pos(320,240)} — phải giữ y nguyên.
+//- Giữ nguyên [TAGx] và
+//{\...}
+//nguyên dạng.
+//-Thay \N bằng[BR] khi trả; chương trình sẽ đổi lại.
+//- Không thêm dòng mới hay xóa dòng; chỉ trả mảng JSON.
+//- Đầu vào: JSON mảng[{ "id": "...", "text": "..." }]
+//-Trả về: JSON mảng[{ "id": "...", "vi": "..." }]
+//CHỈ TRẢ JSON, KHÔNG GIẢI THÍCH.
 
     // Regex bắt Dialogue line (lấy phần text ở cuối)
     private static readonly Regex DialogueRe = new Regex(@"^(Dialogue:\s*\d+,\s*[^,]*,\s*[^,]*,\s*[^,]*,\s*[^,]*,\s*[^,]*,\s*[^,]*,\s*[^,]*,\s*[^,]*,)(.*)$", RegexOptions.Compiled);
@@ -144,8 +169,8 @@ CHỈ TRẢ JSON, KHÔNG GIẢI THÍCH.
             var requestJson = JsonSerializer.Serialize(requestBody, new JsonSerializerOptions { Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping });
 
             // Retry mechanism for API calls
-            int maxRetries = 10;
-            int retryDelay = 5000; // 5 seconds
+            int maxRetries = 100;
+            int retryDelay = 1000; // 5 seconds
             HttpResponseMessage? resp = null;
             string? respBody = null;
             
