@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hnYHLI3+waw=",
+  "dgSpecHash": "X2dvKzFxWRs=",
   "success": true,
   "projectFilePath": "C:\\Users\\huhum\\Documents\\GitHub\\subTranslation\\AssTranslator\\AssTranslator.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\huhum\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.36\\microsoft.netcore.app.ref.6.0.36.nupkg.sha512",
-    "C:\\Users\\huhum\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.36\\microsoft.windowsdesktop.app.ref.6.0.36.nupkg.sha512",
-    "C:\\Users\\huhum\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.36\\microsoft.aspnetcore.app.ref.6.0.36.nupkg.sha512",
-    "C:\\Users\\huhum\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.36\\microsoft.netcore.app.host.win-x64.6.0.36.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

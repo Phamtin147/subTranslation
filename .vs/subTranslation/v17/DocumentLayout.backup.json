@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\huhum\\Documents\\GitHub\\subTranslation\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\huhum\\Documents\\GitHub\\subTranslation\\AssTranslator\\AssTranslator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AssTranslator\\AssTranslator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\huhum\\Documents\\GitHub\\subTranslation\\AssTranslator\\AssTranslator.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AssTranslator\\AssTranslator.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\huhum\\Documents\\GitHub\\subTranslation\\AssTranslator\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AssTranslator\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -23,15 +31,39 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AssTranslator.cs",
+              "DocumentMoniker": "C:\\Users\\huhum\\Documents\\GitHub\\subTranslation\\AssTranslator\\AssTranslator.cs",
+              "RelativeDocumentMoniker": "AssTranslator\\AssTranslator.cs",
+              "ToolTip": "C:\\Users\\huhum\\Documents\\GitHub\\subTranslation\\AssTranslator\\AssTranslator.cs",
+              "RelativeToolTip": "AssTranslator\\AssTranslator.cs",
+              "ViewState": "AgIAAOEBAAAAAAAAAAAAAPQBAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T06:04:44.605Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AssTranslator.csproj",
+              "DocumentMoniker": "C:\\Users\\huhum\\Documents\\GitHub\\subTranslation\\AssTranslator\\AssTranslator.csproj",
+              "RelativeDocumentMoniker": "AssTranslator\\AssTranslator.csproj",
+              "ToolTip": "C:\\Users\\huhum\\Documents\\GitHub\\subTranslation\\AssTranslator\\AssTranslator.csproj",
+              "RelativeToolTip": "AssTranslator\\AssTranslator.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-29T06:04:43.075Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\huhum\\Documents\\GitHub\\subTranslation\\AssTranslator\\Program.cs",
               "RelativeDocumentMoniker": "AssTranslator\\Program.cs",
               "ToolTip": "C:\\Users\\huhum\\Documents\\GitHub\\subTranslation\\AssTranslator\\Program.cs",
               "RelativeToolTip": "AssTranslator\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T03:14:42.563Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T03:14:42.563Z"
             }
           ]
         }
